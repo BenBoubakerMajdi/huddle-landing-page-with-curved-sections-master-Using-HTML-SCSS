@@ -1,0 +1,509 @@
+@import "reset";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@700&display=swap');
+
+@mixin flexbox($direction , $js, $ai) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $js;
+    align-items: $ai;
+}
+
+// font-family: 'Open Sans', sans-serif;
+// font-family: 'Poppins', sans-serif;
+
+//!Colors
+//?Primary
+
+$Pink: hsl(322, 100%, 66%);
+$Light_Pink: hsl(321, 100%, 78%);
+$Light_Red: hsl(0, 100%, 63%);
+
+//?Neutral
+
+$Very_Dark_Cyan: hsl(192, 100%, 9%);
+
+//!Weight 
+$Regular: 400;
+$Semi-bold: 600;
+$Bold: 700;
+
+//!responsive
+$breakpont: 48rem;
+
+body {
+    position: relative;
+    font-family: 'Open Sans', sans-serif;
+    color: $Very_Dark_Cyan; 
+}
+
+//!Utility
+
+.mg-top {
+    margin-top: 11rem;
+}
+.pd-bot {
+    padding-bottom: 0rem;
+}
+.mg-topbot {
+    margin-top: 15rem;
+    margin-bottom: 15rem;
+}
+.full-width {
+    width: 100%;
+}
+.btn_cta {
+    color: white;
+    font-weight: $Semi-bold;
+    padding: 1.5rem 0;
+    width: clamp(11rem, 40%, 18.75rem);
+    background: $Pink; 
+    border: 0;
+    border-radius: 9rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition:background-color 200ms ease-out;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: $Light_Pink;
+                }
+}
+.header {
+    .nav {
+        @include flexbox(row, space-between, center);
+        padding: 3.75rem;
+        padding-bottom: 0;
+        margin-bottom: 11rem;
+
+        &__logo {
+            height: clamp(1rem, 3vw,1.75rem);
+            width: auto;
+        }
+
+        &__btn {
+            color: $Pink;
+            background: transparent;
+            padding: 0.625rem 1.375rem;
+            border: 0.0625rem solid $Pink;
+            border-radius: 9rem;
+            transition: all 200ms ease-out;
+
+            &:hover {
+                cursor: pointer;
+                border: 0.0625rem solid $Light_Pink;  
+                color: $Light_Pink;            
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; 
+            }
+        }
+    }
+
+    .headerS1 {
+        text-align: center;
+        padding-inline: 1rem;
+
+        &__title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1.375rem, 5vw, 2.25rem);
+            margin-bottom: 1.375rem;
+              
+        }
+
+        &__p {
+            width: 45%;
+            margin-inline: auto;
+            margin-bottom: 2rem;
+            line-height: 1.25rem;
+        }
+        .mockup_img {
+            height: clamp(12rem, 60vw, 53rem);
+            margin: 5.5rem 0rem;
+        }
+    }
+
+    .headerS2 {
+        @include flexbox(row, space-around, center);
+        margin-bottom: 12rem;
+
+        &__number {
+            font-size: clamp(3.375rem, 10vw, 4.5rem);
+            font-weight: $Bold;
+            margin-bottom: 1rem;
+        }
+
+        &__span {
+            opacity: 60%;
+            display: block;
+            text-align: center;
+            
+        }
+    }
+}
+
+.desktop-top1 {
+    position: absolute;
+    top: -7.4rem;
+}
+.desktop-bot1 {
+    position: absolute;
+    bottom: -6rem;
+}
+
+.desktop-top2 {
+    position: absolute;
+    top: -7rem;
+}
+.desktop-bot2 {
+    position: absolute;
+    bottom: -6rem;
+}
+
+.mobile-top1 {
+    display: none;
+}
+.mobile-bot1 {
+    display: none;
+}
+
+.mobile-top2 {
+    display: none;
+}
+.mobile-bot2 {
+   display: none;
+}
+
+
+.bgsection {
+    position: relative;
+    background-color: #F6FBFF;
+}
+
+.section {
+    @include flexbox(row, space-around, center);
+    gap: 8rem;
+    margin-inline: 6rem;
+    padding: 3rem 0;
+
+    &:nth-of-type(2) {
+        flex-direction: row-reverse;
+        gap: 7rem;
+        margin-bottom: 9rem;
+    }
+
+    &__text {
+        flex-basis: 60%;
+    }
+    &__title {
+        font-family: 'Poppins', sans-serif;
+        font-size: clamp(1.125rem, 5vw, 1.875rem);
+        margin-bottom: 1rem;
+    }
+    &__p {
+        line-height: 1rem;
+        font-size: 0.75rem;
+    }
+    &__img {
+        width: clamp(15rem, 50vw, 23rem);
+    }
+}
+
+.lastSection {
+    text-align: center;
+    padding-inline: 2rem;
+
+    &__title {
+        font-family: 'Poppins', sans-serif;
+        font-size: clamp(1.375rem, 5vw, 1.875rem);
+        font-weight: $Bold;
+        margin-bottom: 2.25rem;
+    }
+}
+
+.footer {
+    position: relative;
+    @include flexbox(row, center, flex-start);
+    background-color: $Very_Dark_Cyan;
+    padding: 4.75rem 5.5rem;
+    color: white;
+    gap: clamp(5.5rem, 5vw, 18rem);
+
+    &__desktopbg {
+        position: absolute;
+        top: -7rem;
+    }
+
+    &__mobilebg {
+        display: none;
+    }
+
+    &__p {
+        font-size: 0.625rem;
+        line-height: 1rem;
+        margin-bottom: 1.375rem;
+        opacity: 70%;
+    }
+
+    &__logo {
+        height: 1.875rem;
+        margin-bottom: 1.375rem;
+
+        svg path {
+            fill: #fff;
+        }
+    }
+
+    .contact {
+        @include flexbox(row, flex-start, center);
+        gap: 1rem;
+
+        & {
+            margin-bottom: 0.875rem;
+        }
+
+        &__img {
+            height: 0.875rem;
+        }
+        &__info {
+            font-size: 0.625rem;
+            opacity: 70%;
+        }
+    }
+    .socials {
+        @include flexbox(row, flex-start, center);
+        gap: 1rem;
+        margin-top: 3.75rem;
+
+        svg {
+            &:hover {
+                path {
+                    cursor: pointer;
+                    fill : #01C5FD;
+                }
+            }
+            path {
+                fill: white;
+            }
+        }
+        
+    }
+
+    &__right {
+        &__newsletter {
+            text-transform: uppercase;
+            font-size: 1.125rem;
+            font-weight: $Semi-bold;
+            margin-bottom: 1.375rem;
+        }
+
+        .footer__p {
+            width: 65%;
+        }
+
+        .subscribe {
+            position: relative;
+            @include flexbox(row, flex-start, center);
+            gap: 1rem;
+
+            &__input {
+                height: 2.25rem;
+                width: 14.875rem;
+                font-size: 0.625rem;
+                border: 0.0625rem solid white;
+                border-radius: 0.5rem;
+                padding: 0.625rem;
+                outline: none;
+            }
+
+            .subscribe__btn {
+                height: 2.25rem;
+                width: 7.5rem;
+                font-size: 0.75rem;
+                font-weight: $Semi-bold;
+                background: $Pink;
+                color: white;
+                border: 0px;
+                border-radius: 0.25rem;
+                transition:background-color 200ms ease-out;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: $Light_Pink;
+                }
+            }
+
+            #sub_error {
+                display: none;;
+                font-size: 0.625rem;
+                color: $Light_Red;
+                position: absolute;
+                bottom: -1rem;
+                left: 0;
+            }
+        }
+    }
+}
+
+
+//!responsive 
+
+@media(max-width: $breakpont) {
+
+    .mg-top {
+        margin-top: 8rem;
+    }
+    .mg-topbot {
+        margin-top: 11rem;
+        margin-bottom: 16rem;
+    }
+    .pd-bot {
+        padding-bottom: 5rem;
+    }
+    .full-width {
+        width: 100%;
+    }
+    .btn_cta {
+        font-size: 0.6875rem;
+        padding: 0.875rem 0;
+    }
+    .header {
+        .nav {
+            padding: 1.25rem;
+            margin-bottom: 6.25rem;
+    
+            &__btn {
+                font-size: 0.5625rem;
+                padding: 0.375rem 1rem;
+            }
+        }
+    
+        .headerS1 {
+            &__title {
+                margin-inline: 1.375rem;
+            }
+    
+            &__p {
+                font-size: 0.75rem;
+                width: 90%;
+            }
+
+        }
+    
+        .headerS2 {
+            @include flexbox(column, space-around, center);
+            margin-bottom: 8rem;
+            gap: 5.5rem;
+
+            &__icon {
+                height: 1.5rem;
+                margin-bottom: 0.5rem;
+            }
+    
+            &__span {
+                font-size: 0.875rem;         
+            }
+            .narrower {
+                line-height: 1.25rem;
+                margin-inline: auto;
+                width: 50%;
+            }
+        }
+    }
+    
+    .desktop-top1 {
+        display: none;
+    }
+    .desktop-bot1 {
+        display: none;
+    }
+
+    .desktop-top2 {
+        display: none;
+    }
+    .desktop-bot2 {
+        display: none;
+    }
+
+    .mobile-top1 {
+        display: block;
+        position: absolute;
+        top: -5.4rem;
+    }
+    .mobile-bot1 {
+        display: block;
+        position: absolute;
+        bottom: -2.5rem;
+    }
+    
+    
+    .mobile-top2 {
+        display: block;
+        position: absolute;
+        top: -5rem;
+    }
+    .mobile-bot2 {
+        display: block;
+        position: absolute;
+        bottom: -5rem;
+    }
+    
+    .section {
+        @include flexbox(column-reverse, space-around, center);
+        gap: 4rem;
+        margin-inline: 2rem;
+    
+        &:nth-of-type(2) {
+            flex-direction: column-reverse;
+            gap: 5rem;
+            margin-bottom: 10rem;
+        }
+    
+        &__text {
+            text-align: center;
+        }
+    }
+    
+    .footer {
+        @include flexbox(column-reverse, center, flex-start);
+        padding: 2.375rem 1.5rem;
+    
+        &__desktopbg {
+            display: none;
+        }
+    
+        &__mobilebg {
+            display: block;
+            position: absolute;
+            top: -2.5rem;
+            left: 0;
+        }
+    
+        &__p {
+            width: 75%;
+        }
+    
+        &__right {
+            .footer__p {
+                width: 75%;
+            }
+    
+            .subscribe {
+                @include flexbox(column, flex-start, center);
+    
+                &__input {
+                    width: 17.875rem;
+                    align-self: flex-end;
+                }
+    
+                .subscribe__btn {
+                    align-self: flex-end;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 67rem) {
+    p{
+        font-size: 1rem !important;
+        line-height: 1.5rem !important;;
+    }
+}
+
